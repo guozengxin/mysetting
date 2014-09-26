@@ -270,6 +270,12 @@ autocmd BufNewFile,BufRead *.json set filetype=json
 autocmd FileType json setlocal expandtab smarttab shiftwidth=2 softtabstop=2
 
 
+""""""""""""""""""""""""""""""
+" => matlab 部分
+""""""""""""""""""""""""""""""
+autocmd BufNewFile,BufRead *.m set filetype=matlab
+autocmd FileType matlab setlocal expandtab smarttab shiftwidth=4 softtabstop=4
+
 
 """"""""""""""""""""""""""""""
 " => Python部分
