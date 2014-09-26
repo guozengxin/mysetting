@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/search/guozengxin/source/find_module/explore_reader/ReaderKernel'
+let g:netrw_dirhist_2='/search/guozengxin/source/find_module/explore_reader/ReaderKernel/domainset'
+let g:netrw_dirhist_3='/search/guozengxin/dir_test/git/machine-learning/adaboost/adaboost.py'
+let g:netrw_dirhist_4='/search/guozengxin/source/pic.pic_index.newsystem.RH6/norm2Instant'
+let g:netrw_dirhist_5='/usr/src/debug/ImageMagick-6.5.4-7/coders'
+let g:netrw_dirhist_6='/search/guozengxin/source/pic.pic_index.newsystem.RH6.forImageMagick'
+let g:netrw_dirhist_7='/search/guozengxin/source/pic.pic_index.newsystem.RH6/ReadImage_Net'
+let g:netrw_dirhist_8='/search/guozengxin/dir_test/git/blogs/_includes/post'
+let g:netrw_dirhist_9='/search/guozengxin/tools/shell'
