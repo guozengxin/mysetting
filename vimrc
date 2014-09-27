@@ -94,7 +94,7 @@ set nonu
 " 设置内部编码
 set encoding=utf-8
 " 终端显示编码
-set termencoding=gb18030
+set termencoding=utf-8
 " 设置可识别的文件编码
 set fileencodings=utf-8,gb18030,cp936,ucs-bom,big5,euc-jp,euc-kr,latin1
 try
