@@ -141,7 +141,8 @@ set wrap
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
-Bundle 'andviro/flake8-vim'
+Bundle 'nvie/vim-flake8'
+" Bundle 'andviro/flake8-vim'
 
 
 
