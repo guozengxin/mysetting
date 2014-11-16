@@ -1,0 +1,10 @@
+:make	sml-coursera.txt	/*:make*
+SML-coursera-contents	sml-coursera.txt	/*SML-coursera-contents*
+SmlCourseraBugs	sml-coursera.txt	/*SmlCourseraBugs*
+SmlCourseraChangelog	sml-coursera.txt	/*SmlCourseraChangelog*
+SmlCourseraConfig	sml-coursera.txt	/*SmlCourseraConfig*
+SmlCourseraCredits	sml-coursera.txt	/*SmlCourseraCredits*
+SmlCourseraIntro	sml-coursera.txt	/*SmlCourseraIntro*
+SmlCourseraLicense	sml-coursera.txt	/*SmlCourseraLicense*
+SmlCourseraUsage	sml-coursera.txt	/*SmlCourseraUsage*
+sml-coursera.txt	sml-coursera.txt	/*sml-coursera.txt*

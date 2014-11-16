@@ -142,6 +142,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'nvie/vim-flake8'
+Bundle 'chilicuil/vim-sml-coursera'
 " Bundle 'andviro/flake8-vim'
 
 
