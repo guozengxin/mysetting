@@ -262,10 +262,9 @@ map <silent> <leader>tl :TlistToggle<cr>
 
 
 """"""""""""""""""""""""""""""
-" => 需要将tab转为4个空格的文件
+" => 将tab转为4个空格的文件
 """"""""""""""""""""""""""""""
-autocmd BufNewFile,BufRead *.ini *.cfg set filetype=tab4space
-autocmd FileType tab4space setlocal expandtab smarttab shiftwidth=4 softtabstop=4
+autocmd FileType cfg setlocal expandtab smarttab shiftwidth=4 softtabstop=4
 
 
 """"""""""""""""""""""""""""""
