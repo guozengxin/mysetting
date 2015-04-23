@@ -262,10 +262,10 @@ let Tlist_Exit_OnlyWindow=1
 map <silent> <leader>tl :TlistToggle<cr>
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Omni complete functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+""""""""""""""""""""""""""""""
+" => 将tab转为4个空格的文件
+""""""""""""""""""""""""""""""
+autocmd FileType cfg setlocal expandtab smarttab shiftwidth=4 softtabstop=4
 
 
 """"""""""""""""""""""""""""""
@@ -274,6 +274,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd BufNewFile,BufRead *.less set filetype=less
 autocmd BufNewFile,BufRead *.scss set filetype=scss
 autocmd FileType css,less,scss setlocal expandtab smarttab shiftwidth=2 softtabstop=2
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 
 """"""""""""""""""""""""""""""
