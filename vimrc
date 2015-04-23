@@ -143,6 +143,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'nvie/vim-flake8'
 Bundle 'chilicuil/vim-sml-coursera'
+" Bundle 'terryma/vim-multiple-cursors'
 " Bundle 'andviro/flake8-vim'
 
 
