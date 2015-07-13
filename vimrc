@@ -143,6 +143,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'nvie/vim-flake8'
 Bundle 'chilicuil/vim-sml-coursera'
+Bundle 'othree/html5.vim'
 " Bundle 'terryma/vim-multiple-cursors'
 " Bundle 'andviro/flake8-vim'
 
@@ -296,8 +297,8 @@ autocmd FileType matlab setlocal expandtab smarttab shiftwidth=4 softtabstop=4
 """"""""""""""""""""""""""""""
 " Ê¹flake8²å¼þ
 let python_highlight_all = 1
-let g:flake8_builtins="_,apply"
-let g:flake8_ignore="E501,W293"
+" let g:flake8_builtins="_,apply"
+" let g:flake8_ignore="E501,W293"
 au BufWritePost *.py call Flake8()
 
 au FileType python syn keyword pythonDecorator True None False self
