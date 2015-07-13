@@ -1,0 +1,4 @@
+# ignore plugin links
+vim/bundle/html5.vim/
+vim/bundle/vim-flake8/
+vim/bundle/vim-sml-coursera/
