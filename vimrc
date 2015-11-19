@@ -371,6 +371,5 @@ set grepprg=/bin/grep\ -nH
 """"""""""""""""""""""""""""""
 " map <leader>cl i\\color{}{}<esc>2hi
 map <leader>il i\\(\\)<esc>2hi
-
-
-set tags=tags;../tags;../../tags;../../../tags;../../../../tags;
+nmap <leader>ih i{% highlight  %}<CR>{% endhighlight %}<esc>k$2hi
+imap <leader>ih <C-R><C-R>='{% highlight  %}'<CR><CR>{% endhighlight %}<esc>k$2hi
