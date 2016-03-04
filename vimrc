@@ -85,7 +85,7 @@ set gfn=Monospace\ 10
 set shell=/bin/bash
 
 " 设置配色模式，背景色
-colorscheme zellner
+colorscheme solarized
 set background=dark
 
 " 设置默认无行号
