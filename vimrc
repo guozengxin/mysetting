@@ -1,142 +1,143 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Author: Ğ¡ĞÂ
+" Author: å°æ–°
 " Email: gzxabcdefg@163.com
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Í¨ÓÃÉèÖÃ
+" => é€šç”¨è®¾ç½®
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set history=700                "VIM¼ÇÂ¼µÄÀúÊ·µÄĞĞÊı
-set helplang=cn                "VIMµÄ°ïÖúµÄÓïÑÔ
+set history=700                "VIMè®°å½•çš„å†å²çš„è¡Œæ•°
+set helplang=cn                "VIMçš„å¸®åŠ©çš„è¯­è¨€
 
-" ´ò¿ªÎÄ¼ş×Ô¶¯¼ì²â¹¦ÄÜ
+" æ‰“å¼€æ–‡ä»¶è‡ªåŠ¨æ£€æµ‹åŠŸèƒ½
 filetype plugin on
 filetype indent on
 
-" µ±ÎÄ¼ş´ÓÍâ²¿¸ü¸ÄÊ±¿ÉÒÔ×Ô¶¯¸üĞÂÎÄ¼ş
+" å½“æ–‡ä»¶ä»å¤–éƒ¨æ›´æ”¹æ—¶å¯ä»¥è‡ªåŠ¨æ›´æ–°æ–‡ä»¶
 set autoread
 
-" ÉèÖÃÒ»¸ömap leaderÊ¹¿ÉÒÔ×÷ÓÃ¸ü¶àµÄÃüÁî×éºÏ
+" è®¾ç½®ä¸€ä¸ªmap leaderä½¿å¯ä»¥ä½œç”¨æ›´å¤šçš„å‘½ä»¤ç»„åˆ
 let mapleader = ","
 let g:mapleader = ","
 
-" ¿ìËÙ±£´æ
+" å¿«é€Ÿä¿å­˜
 nmap <leader>w :w!<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VIM½çÃæ
+" => VIMç•Œé¢
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ÆÁÄ»¹ö¶¯Ê±ÔÚ¹â±êÉÏÏÂ·½±£Áô7ĞĞ
+" å±å¹•æ»šåŠ¨æ—¶åœ¨å…‰æ ‡ä¸Šä¸‹æ–¹ä¿ç•™7è¡Œ
 set so=7
 
-" ÔÚÃüÁîÄ£Ê½ÏÂÊ¹ÓÃ Tab ×Ô¶¯²¹È«µÄÊ±ºò£¬½«²¹È«ÄÚÈİÊ¹ÓÃÒ»¸öÆ¯ÁÁµÄµ¥ĞĞ²Ëµ¥ĞÎÊ½ÏÔÊ¾³öÀ´
+" åœ¨å‘½ä»¤æ¨¡å¼ä¸‹ä½¿ç”¨ Tab è‡ªåŠ¨è¡¥å…¨çš„æ—¶å€™ï¼Œå°†è¡¥å…¨å†…å®¹ä½¿ç”¨ä¸€ä¸ªæ¼‚äº®çš„å•è¡Œèœå•å½¢å¼æ˜¾ç¤ºå‡ºæ¥
 set wildmenu
 
-" Ê¼ÖÕÔÚÓÒÏÂ½ÇÏÔÊ¾×´Ì¬ĞĞ
+" å§‹ç»ˆåœ¨å³ä¸‹è§’æ˜¾ç¤ºçŠ¶æ€è¡Œ
 set ruler
 
-" ÉèÖÃÃüÁîĞĞ¸ß¶È
+" è®¾ç½®å‘½ä»¤è¡Œé«˜åº¦
 set cmdheight=2
 
-" ÔÊĞíÔÚÓĞÎ´±£´æµÄĞŞ¸ÄÊ±ÇĞ»»»º³åÇø
+" å…è®¸åœ¨æœ‰æœªä¿å­˜çš„ä¿®æ”¹æ—¶åˆ‡æ¢ç¼“å†²åŒº
 set hidden 
 
-" ÉèÖÃÍË¸ñ¼üµÄÄ£Ê½£ºeolÉ¾³ıÉÏÒ»ĞĞ£¬startÉ¾³ı´Ë´Î²åÈëÖ®Ç°µÄÄÚÈİ£¬indentÉ¾³ı×Ô¶¯Ëõ½øµÄÄÚÈİ
+" è®¾ç½®é€€æ ¼é”®çš„æ¨¡å¼ï¼šeolåˆ é™¤ä¸Šä¸€è¡Œï¼Œstartåˆ é™¤æ­¤æ¬¡æ’å…¥ä¹‹å‰çš„å†…å®¹ï¼Œindentåˆ é™¤è‡ªåŠ¨ç¼©è¿›çš„å†…å®¹
 set backspace=eol,start,indent
 
-" ÉèÖÃÕÛ·µÉÏÒ»ĞĞ»òÏÂÒ»ĞĞÊ±ÔÊĞíµÄ¿ì½İ¼ü£º×óÓÒ·½Ïò¼ü, hºÍl¼ü
+" è®¾ç½®æŠ˜è¿”ä¸Šä¸€è¡Œæˆ–ä¸‹ä¸€è¡Œæ—¶å…è®¸çš„å¿«æ·é”®ï¼šå·¦å³æ–¹å‘é”®, hå’Œlé”®
 set whichwrap+=<,>,h,l
 
-" ËÑË÷Ê±ºöÂÔ´óĞ¡Ğ´
+" æœç´¢æ—¶å¿½ç•¥å¤§å°å†™
 set ignorecase
-" ËÑË÷Ê±¹Ø¼ü´Ê³öÏÖÒ»¸ö´ó×Ö×ÖÄ¸Ê±²ÅÇø·Ö´óĞ¡Ğ´
+" æœç´¢æ—¶å…³é”®è¯å‡ºç°ä¸€ä¸ªå¤§å­—å­—æ¯æ—¶æ‰åŒºåˆ†å¤§å°å†™
 set smartcase
-" ¸ßÁÁËÑË÷µÄÄÚÈİ
+" é«˜äº®æœç´¢çš„å†…å®¹
 set hlsearch
-" ÉèÖÃÔöÁ¿²éÕÒ
+" è®¾ç½®å¢é‡æŸ¥æ‰¾
 set incsearch
-" ÉèÖÃµ±ÔËĞĞºêÊ±²»ÖØ»æ(Ê¹ÔËĞĞËÙ¶È¸ü¿ì)
+" è®¾ç½®å½“è¿è¡Œå®æ—¶ä¸é‡ç»˜(ä½¿è¿è¡Œé€Ÿåº¦æ›´å¿«)
 set lazyredraw
-" ²éÕÒÊ±µÄmagicÉèÖÃ£¬²é¿´:h magic
+" æŸ¥æ‰¾æ—¶çš„magicè®¾ç½®ï¼ŒæŸ¥çœ‹:h magic
 set magic
 
-" ¸ßÁÁÏÔÊ¾Æ¥ÅäµÄÀ¨ºÅ
+" é«˜äº®æ˜¾ç¤ºåŒ¹é…çš„æ‹¬å·
 set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
-" ½ûÖ¹±¨¾¯Éù
+" ç¦æ­¢æŠ¥è­¦å£°
 set noerrorbells
 set novisualbell
-" ¿ÉÊÓÁåÉù
+" å¯è§†é“ƒå£°
 set t_vb=
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ÑÕÉ«ºÍ×ÖÌå
+" => é¢œè‰²å’Œå­—ä½“
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable "Enable syntax hl
 
-" ÉèÖÃ×ÖÌå
+" è®¾ç½®å­—ä½“
 set gfn=Monospace\ 10
 set shell=/bin/bash
 
-" ÉèÖÃÅäÉ«Ä£Ê½£¬±³¾°É«
+" è®¾ç½®é…è‰²æ¨¡å¼ï¼ŒèƒŒæ™¯è‰²
 colorscheme zellner
 set background=dark
 
-" ÉèÖÃÄ¬ÈÏÎŞĞĞºÅ
+" è®¾ç½®é»˜è®¤æ— è¡Œå·
 set nonu
 
-" ÉèÖÃÄÚ²¿±àÂë
+" è®¾ç½®å†…éƒ¨ç¼–ç 
 set encoding=utf-8
-" ÖÕ¶ËÏÔÊ¾±àÂë
-set termencoding=gb18030
-" ÉèÖÃ¿ÉÊ¶±ğµÄÎÄ¼ş±àÂë
+" ç»ˆç«¯æ˜¾ç¤ºç¼–ç 
+set termencoding=utf-8
+" è®¾ç½®å¯è¯†åˆ«çš„æ–‡ä»¶ç¼–ç 
 set fileencodings=utf-8,gb18030,cp936,ucs-bom,big5,euc-jp,euc-kr,latin1
 try
     lang en_US
 catch
 endtry
 
-" Ä¬ÈÏµÄÎÄ¼şÀàĞÍ
+" é»˜è®¤çš„æ–‡ä»¶ç±»å‹
 set ffs=unix,dos,mac
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ÎÄ¼ş¡¢±¸·İºÍundo
+" => æ–‡ä»¶ã€å¤‡ä»½å’Œundo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ¹Ø±Õ±¸·İ
+" å…³é—­å¤‡ä»½
 set nobackup
 set nowb
 set noswapfile
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ÎÄ±¾¡¢ÖÆ±í·ûºÍËõ½ø
+" => æ–‡æœ¬ã€åˆ¶è¡¨ç¬¦å’Œç¼©è¿›
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ×Ô¶¯Ëõ½øÃ¿Ò»²½Ê¹ÓÃµÄ¿Õ°×ÊıÄ¿
+" è‡ªåŠ¨ç¼©è¿›æ¯ä¸€æ­¥ä½¿ç”¨çš„ç©ºç™½æ•°ç›®
 set shiftwidth=4
-" ÉèÖÃÎÄ¼şÖĞtab±íÊ¾µÄ¿Õ¸ñÊı
+" è®¾ç½®æ–‡ä»¶ä¸­tabè¡¨ç¤ºçš„ç©ºæ ¼æ•°
 set tabstop=4
-" ÉèÖÃlinebreak£¬Ê¹VIMÔÚÎÄ¼şÖĞ¿Õ°×µÄµØ·½ÕÛĞĞ
+" è®¾ç½®linebreakï¼Œä½¿VIMåœ¨æ–‡ä»¶ä¸­ç©ºç™½çš„åœ°æ–¹æŠ˜è¡Œ
 set linebreak
-" ÉèÖÃÎÄ¼ş¿í¶È£¬0±íÊ¾²»ÏŞÖÆ
+" è®¾ç½®æ–‡ä»¶å®½åº¦ï¼Œ0è¡¨ç¤ºä¸é™åˆ¶
 set textwidth=0
 
-" ÉèÖÃ×Ô¶¯Ëõ½ø
+" è®¾ç½®è‡ªåŠ¨ç¼©è¿›
 set autoindent
-" ¿ª»§ĞÂĞĞµÄ²ÉÓÃ×Ô¶¯Ëõ½ø 
+" å¼€æˆ·æ–°è¡Œçš„é‡‡ç”¨è‡ªåŠ¨ç¼©è¿› 
 set si
-" ´óÓÚµÄÒ»ĞĞµÄÎÄ±¾»á»»ĞĞÏÔÊ¾
+" å¤§äºçš„ä¸€è¡Œçš„æ–‡æœ¬ä¼šæ¢è¡Œæ˜¾ç¤º
 set wrap
 
 
 """"""""""""""""""""""""""""""
-" => vundle²å¼ş°²×°
+" => vundleæ’ä»¶å®‰è£…
+" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 """"""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -150,11 +151,11 @@ Bundle 'othree/html5.vim'
 
 
 """"""""""""""""""""""""""""""
-" => VisualÄ£Ê½Ïà¹Ø
+" => Visualæ¨¡å¼ç›¸å…³
 """"""""""""""""""""""""""""""
 " NOTICE: Really useful!
 
-" ÔÚvisualÄ£Ê½°´ÏÂ*»ò#»á²éÕÒµ±Ç°Ñ¡ÖĞµÄ²¿·Ö
+" åœ¨visualæ¨¡å¼æŒ‰ä¸‹*æˆ–#ä¼šæŸ¥æ‰¾å½“å‰é€‰ä¸­çš„éƒ¨åˆ†
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 
@@ -191,29 +192,29 @@ endfunction
 " => Moving around, tabs and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" ÔÚ´°¿ÚÖ®¼äÒÆ¶¯Ê±£¬²ÉÓÃ´ËÓ³Éä
+" åœ¨çª—å£ä¹‹é—´ç§»åŠ¨æ—¶ï¼Œé‡‡ç”¨æ­¤æ˜ å°„
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Ê¹ÓÃ¼ıÍ·´úÌæ:bn :bp£¬ÔÚÎÄ¼şÖ®¼äÒÆ¶¯
+" ä½¿ç”¨ç®­å¤´ä»£æ›¿:bn :bpï¼Œåœ¨æ–‡ä»¶ä¹‹é—´ç§»åŠ¨
 map <right> :bn<cr>
 map <left> :bp<cr>
 
-" tab¿ì½İ¼ü
+" tabå¿«æ·é”®
 map <leader>tn :tabnew! %<cr>
 map <leader>te :tabedit 
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
 
 """"""""""""""""""""""""""""""
-" => ×´Ì¬ĞĞ
+" => çŠ¶æ€è¡Œ
 """"""""""""""""""""""""""""""
-" ÉèÖÃ×´Ì¬ĞĞ×ÜÊÇÏÔÊ¾
+" è®¾ç½®çŠ¶æ€è¡Œæ€»æ˜¯æ˜¾ç¤º
 set laststatus=2
 
-" »ñÈ¡git·ÖÖ§
+" è·å–gitåˆ†æ”¯
 function! GitBranch()
     try
         let branch = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
@@ -228,12 +229,12 @@ function! GitBranch()
     return ''
 endfunction
 
-" »ñÈ¡µ±Ç°Ä¿Â¼
+" è·å–å½“å‰ç›®å½•
 function! CurDir()
     return substitute(getcwd(), '/Users/amir/', "~/", "g")
 endfunction
 
-" ÊÇ·ñÕ³ÌùÄ£Ê½
+" æ˜¯å¦ç²˜è´´æ¨¡å¼
 function! HasPaste()
     if &paste
         return 'PASTE MODE  '
@@ -241,19 +242,15 @@ function! HasPaste()
     return ''
 endfunction
 
-" ×´Ì¬À¸¸ñÊ½
+" çŠ¶æ€æ æ ¼å¼
 set statusline=\ %F%m%r%h\ %w\ \ Line:\ %l/%L
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ±à¼­Ä£Ê½Ó³Éä
+" => ç¼–è¾‘æ¨¡å¼æ˜ å°„
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ó³Éä0Îª^
+" æ˜ å°„0ä¸º^
 map 0 ^
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ÆôÓÃpathogen²å¼ş
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-execute pathogen#infect()
 
 """"""""""""""""""""""""""""""
 " => taglist plugin
@@ -264,13 +261,13 @@ map <silent> <leader>tl :TlistToggle<cr>
 
 
 """"""""""""""""""""""""""""""
-" => ½«tab×ªÎª4¸ö¿Õ¸ñµÄÎÄ¼ş
+" => å°†tabè½¬ä¸º4ä¸ªç©ºæ ¼çš„æ–‡ä»¶
 """"""""""""""""""""""""""""""
 autocmd FileType cfg setlocal expandtab smarttab shiftwidth=4 softtabstop=4
 
 
 """"""""""""""""""""""""""""""
-" => css ²¿·Ö
+" => css éƒ¨åˆ†
 """"""""""""""""""""""""""""""
 autocmd BufNewFile,BufRead *.less set filetype=less
 autocmd BufNewFile,BufRead *.scss set filetype=scss
@@ -279,23 +276,23 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 
 """"""""""""""""""""""""""""""
-" => json ²¿·Ö
+" => json éƒ¨åˆ†
 """"""""""""""""""""""""""""""
 autocmd BufNewFile,BufRead *.json set filetype=json
 autocmd FileType json setlocal expandtab smarttab shiftwidth=2 softtabstop=2
 
 
 """"""""""""""""""""""""""""""
-" => matlab ²¿·Ö
+" => matlab éƒ¨åˆ†
 """"""""""""""""""""""""""""""
 autocmd BufNewFile,BufRead *.m set filetype=matlab
 autocmd FileType matlab setlocal expandtab smarttab shiftwidth=4 softtabstop=4
 
 
 """"""""""""""""""""""""""""""
-" => Python²¿·Ö
+" => Pythonéƒ¨åˆ†
 """"""""""""""""""""""""""""""
-" Ê¹flake8²å¼ş
+" ä½¿flake8æ’ä»¶
 let python_highlight_all = 1
 " let g:flake8_builtins="_,apply"
 " let g:flake8_ignore="E501,W293"
@@ -316,7 +313,7 @@ au FileType python map <buffer> <leader>C ?class
 au FileType python map <buffer> <leader>D ?def 
 au FileType python setlocal expandtab smarttab shiftwidth=4 softtabstop=4
 
-" É¾³ı¶àÓà¿Õ°×£¬ÔÚpythonÖĞÓĞÓÃ
+" åˆ é™¤å¤šä½™ç©ºç™½ï¼Œåœ¨pythonä¸­æœ‰ç”¨
 func! DeleteTrailingWS()
   exe "normal mz"
   %s/\s\+$//ge
@@ -341,20 +338,20 @@ au FileType python setlocal expandtab smarttab shiftwidth=4 softtabstop=4
 
 
 """""""""""""""""""""""""""""""
-" => Html²¿·Ö
+" => Htmléƒ¨åˆ†
 """""""""""""""""""""""""""""""
 au BufNewFile,BufRead *.htm,*.html set filetype=html
 au FileType html setlocal expandtab smarttab shiftwidth=2 softtabstop=2
 
 
 """""""""""""""""""""""""""""""
-" => xml²¿·Ö
+" => xmléƒ¨åˆ†
 """""""""""""""""""""""""""""""
 au FileType xml setlocal expandtab smarttab shiftwidth=2 softtabstop=2
 
 
 """"""""""""""""""""""""""""""
-" => MRU²å¼ş£¬¿ÉÒÔ¼ÇÂ¼×î½ü´ò¿ªÀúÊ·
+" => MRUæ’ä»¶ï¼Œå¯ä»¥è®°å½•æœ€è¿‘æ‰“å¼€å†å²
 """"""""""""""""""""""""""""""
 let MRU_Max_Entries = 400
 map <leader>f :MRU<CR>
@@ -367,7 +364,7 @@ let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated'
 set grepprg=/bin/grep\ -nH
 
 """"""""""""""""""""""""""""""
-" => ×Ô¶¨ÒåÊäÈë¿ì½İ¼ü
+" => è‡ªå®šä¹‰è¾“å…¥å¿«æ·é”®
 """"""""""""""""""""""""""""""
 " map <leader>cl i\\color{}{}<esc>2hi
 map <leader>il i\\(\\)<esc>2hi
