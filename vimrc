@@ -25,12 +25,20 @@ let g:mapleader = ","
 " 快速保存
 nmap <leader>w :w!<cr>
 
+" 记住上次打开文件的位置
+if has("autocmd")
+	autocmd BufReadPost *
+				\ if line("'\"") > 0 && line ("'\"") <= line("$") |
+				\ exe "normal g'\"" |
+				\ endif 
+endif
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM界面
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 屏幕滚动时在光标上下方保留7行
-set so=7
+set so=5
 
 " 在命令模式下使用 Tab 自动补全的时候，将补全内容使用一个漂亮的单行菜单形式显示出来
 set wildmenu
@@ -145,8 +153,9 @@ Bundle 'gmarik/vundle'
 Bundle 'nvie/vim-flake8'
 Bundle 'chilicuil/vim-sml-coursera'
 Bundle 'othree/html5.vim'
+" Plugin 'vim-airline/vim-airline'
 " Bundle 'terryma/vim-multiple-cursors'
-" Bundle 'andviro/flake8-vim'
+Bundle 'andviro/flake8-vim'
 
 
 
@@ -213,6 +222,8 @@ map <leader>tm :tabmove
 """"""""""""""""""""""""""""""
 " 设置状态行总是显示
 set laststatus=2
+" let g:Powerline_symbols='unicode'
+set statusline=\ %F%m%r%h\ %w\ \ Line:\ %l/%L
 
 " 获取git分支
 function! GitBranch()
@@ -229,6 +240,13 @@ function! GitBranch()
     return ''
 endfunction
 
+function! HasFlake()
+	if !exists("*Flake8()") && executable('flake8')
+		return ''
+	endif
+	return 'NO'
+endfunction
+
 " 获取当前目录
 function! CurDir()
     return substitute(getcwd(), '/Users/amir/', "~/", "g")
@@ -242,8 +260,6 @@ function! HasPaste()
     return ''
 endfunction
 
-" 状态栏格式
-set statusline=\ %F%m%r%h\ %w\ \ Line:\ %l/%L
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 编辑模式映射
