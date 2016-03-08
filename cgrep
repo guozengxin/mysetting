@@ -1,0 +1,3 @@
+#!/bin/sh
+
+fgrep -nIR --include=\*.{cpp,hpp,h,c} --exclude="*.svn" --exclude="*.svn" $1 . | grep $1 --color
