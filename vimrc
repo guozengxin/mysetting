@@ -93,8 +93,9 @@ set gfn=Monospace\ 10
 set shell=/bin/bash
 
 " 设置配色模式，背景色
-colorscheme solarized
 set background=dark
+" colorscheme zellner
+colorscheme default
 
 " 设置默认无行号
 set nonu
@@ -155,7 +156,7 @@ Bundle 'chilicuil/vim-sml-coursera'
 Bundle 'othree/html5.vim'
 " Plugin 'vim-airline/vim-airline'
 " Bundle 'terryma/vim-multiple-cursors'
-Bundle 'andviro/flake8-vim'
+" Bundle 'andviro/flake8-vim'
 
 
 
@@ -312,7 +313,7 @@ autocmd FileType matlab setlocal expandtab smarttab shiftwidth=4 softtabstop=4
 let python_highlight_all = 1
 " let g:flake8_builtins="_,apply"
 " let g:flake8_ignore="E501,W293"
-au BufWritePost *.py call Flake8()
+" au BufWritePost *.py call Flake8()
 
 au FileType python syn keyword pythonDecorator True None False self
 
@@ -386,3 +387,5 @@ set grepprg=/bin/grep\ -nH
 map <leader>il i\\(\\)<esc>2hi
 nmap <leader>ih i{% highlight  %}<CR>{% endhighlight %}<esc>k$2hi
 imap <leader>ih <C-R><C-R>='{% highlight  %}'<CR><CR>{% endhighlight %}<esc>k$2hi
+
+set tags=tags;../tags;../../tags;../../../tags;../../../../tags

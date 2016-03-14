@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ -n "$1" ]; then
+	host=$1
+	if [ $host == "local" ]; then
+		host=`hostname -I | awk '{print $1}'`
+	fi
+	echo "ssh -k tiger@$host"
+	ssh -k tiger@$host
+else
+	echo "Please indicate host:
+	`basename $0` hostname"
+fi

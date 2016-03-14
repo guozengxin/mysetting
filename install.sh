@@ -7,7 +7,7 @@ for l in $list; do
 done
 
 mkdir -p ~/bin/
-list="jgrep pygrep cgrep gogrep"
+list="jgrep pygrep cgrep gogrep bt"
 for l in $list; do
-	ln -sf $now/$l ~/bin/${l}
+	ln -sf $now/bin/$l ~/bin/${l}
 done

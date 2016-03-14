@@ -1,3 +1,0 @@
-#!/bin/sh
-
-fgrep -nIR --include=\*.pygrep --exclude="*.git" --exclude="*.svn" $1 . | grep $1 --color
