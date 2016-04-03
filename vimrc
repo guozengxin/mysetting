@@ -154,6 +154,7 @@ Bundle 'gmarik/vundle'
 Bundle 'nvie/vim-flake8'
 Bundle 'chilicuil/vim-sml-coursera'
 Bundle 'othree/html5.vim'
+Bundle 'fatih/vim-go'
 " Plugin 'vim-airline/vim-airline'
 " Bundle 'terryma/vim-multiple-cursors'
 " Bundle 'andviro/flake8-vim'
@@ -311,8 +312,6 @@ autocmd FileType matlab setlocal expandtab smarttab shiftwidth=4 softtabstop=4
 """"""""""""""""""""""""""""""
 " 使flake8插件
 let python_highlight_all = 1
-" let g:flake8_builtins="_,apply"
-" let g:flake8_ignore="E501,W293"
 " au BufWritePost *.py call Flake8()
 
 au FileType python syn keyword pythonDecorator True None False self
@@ -365,6 +364,15 @@ au FileType html setlocal expandtab smarttab shiftwidth=2 softtabstop=2
 " => xml部分
 """""""""""""""""""""""""""""""
 au FileType xml setlocal expandtab smarttab shiftwidth=2 softtabstop=2
+
+"""""""""""""""""""""""""""""""
+" => Golang部分
+"""""""""""""""""""""""""""""""
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
 
 """"""""""""""""""""""""""""""

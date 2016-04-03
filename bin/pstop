@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+	echo "please indicated flag"
+	exit
+fi
+line=`ps aux | grep "$1" | grep -v "pstop" | grep -v 'grep'`
+pid=`echo $line | awk '{print $2}'`
+echo $line
+kill -9 $pid
