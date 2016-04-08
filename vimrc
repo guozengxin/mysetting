@@ -131,6 +131,9 @@ set noswapfile
 set shiftwidth=4
 " 设置文件中tab表示的空格数
 set tabstop=4
+set expandtab
+set smarttab
+set softtabstop=4
 " 设置linebreak，使VIM在文件中空白的地方折行
 set linebreak
 " 设置文件宽度，0表示不限制
@@ -281,7 +284,7 @@ map <silent> <leader>tl :TlistToggle<cr>
 """"""""""""""""""""""""""""""
 " => 将tab转为4个空格的文件
 """"""""""""""""""""""""""""""
-autocmd FileType cfg setlocal expandtab smarttab shiftwidth=4 softtabstop=4
+autocmd FileType cfg,thrift,conf setlocal expandtab smarttab shiftwidth=4 softtabstop=4
 
 
 """"""""""""""""""""""""""""""
