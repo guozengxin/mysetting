@@ -160,6 +160,8 @@ Bundle 'othree/html5.vim'
 Bundle 'fatih/vim-go'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'minibufexplorerpp'
+" Bundle 'bufexplorer.zip'
 " Bundle 'Valloric/YouCompleteMe'
 " Bundle 'majutsushi/tagbar'
 " Bundle 'terryma/vim-multiple-cursors'
@@ -246,15 +248,15 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" 在窗口之间移动
+map <right> :bn<cr>
+map <left> :bp<cr>
+
 " tab快捷键
-map <leader>tn :tabnew
+map <leader>tn :tabnew! %<cr>
 map <leader>te :tabedit 
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
-map <right> :tabnext<cr>
-map <left> :tabprevious<cr>
-
-map <leader>n <plug>NERDTreeTabsToggle<CR>
 
 """"""""""""""""""""""""""""""
 " => 状态行
@@ -313,6 +315,12 @@ map 0 ^
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 map <silent> <leader>tl :TlistToggle<cr>
+
+""""""""""""""""""""""""""""""
+" => NERDTreeTab plugin
+""""""""""""""""""""""""""""""
+map <leader>n <plug>NERDTreeTabsToggle<CR>
+
 
 
 """"""""""""""""""""""""""""""
