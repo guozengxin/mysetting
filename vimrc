@@ -43,6 +43,9 @@ set so=5
 " 在命令模式下使用 Tab 自动补全的时候，将补全内容使用一个漂亮的单行菜单形式显示出来
 set wildmenu
 
+" 补全窗口不额外显示一个窗口
+set completeopt=longest,menuone
+
 " 始终在右下角显示状态行
 set ruler
 
