@@ -165,10 +165,12 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'minibufexplorerpp'
 " Bundle 'bufexplorer.zip'
-" Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 " Bundle 'majutsushi/tagbar'
 " Bundle 'terryma/vim-multiple-cursors'
 " Bundle 'andviro/flake8-vim'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
 
 
 """"""""""""""""""""""""""""""
@@ -177,6 +179,7 @@ Bundle 'minibufexplorerpp'
 " 在.vim/bundle/YouCompleteMe目录下执行 ./install.py --all
 """"""""""""""""""""""""""""""
 " YCM settings
+let g:ycm_python_binary_path = 'python'
 " let g:ycm_key_list_select_completion = ['', '']
 " let g:ycm_key_list_previous_completion = ['', '']
 " let g:ycm_key_invoke_completion = '<C-Space>'
