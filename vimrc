@@ -163,7 +163,7 @@ Bundle 'othree/html5.vim'
 Bundle 'fatih/vim-go'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'minibufexplorerpp'
+" Bundle 'minibufexplorerpp'
 " Bundle 'bufexplorer.zip'
 Bundle 'Valloric/YouCompleteMe'
 " Bundle 'majutsushi/tagbar'
@@ -204,6 +204,31 @@ let g:ycm_python_binary_path = 'python'
 " inoremap <leader>o <C-x><C-o>
 " nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>                " turn off YCM
 " nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>                "turn on YCM
+
+
+"
+""""""""""""""""""""""""""""""
+" => fzf-vim设置
+""""""""""""""""""""""""""""""
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~40%' }
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 
 
 """"""""""""""""""""""""""""""
@@ -255,8 +280,10 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " 在窗口之间移动
-map <right> :bn<cr>
-map <left> :bp<cr>
+" map <right> :bn<cr>
+" map <left> :bp<cr>
+map <right> gt
+map <left> gT
 
 " tab快捷键
 map <leader>tn :tabnew! %<cr>
