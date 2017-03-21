@@ -1,7 +1,7 @@
 #!/bin/sh
 
 now=`pwd`
-list="vimrc vim"
+list="vimrc vim tmux.conf"
 for l in $list; do
 	ln -sf $now/$l ~/.${l}
 done

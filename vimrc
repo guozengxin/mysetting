@@ -163,14 +163,17 @@ Bundle 'othree/html5.vim'
 Bundle 'fatih/vim-go'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
-" Bundle 'minibufexplorerpp'
-" Bundle 'bufexplorer.zip'
+Bundle 'klen/python-mode'
 Bundle 'Valloric/YouCompleteMe'
-" Bundle 'majutsushi/tagbar'
-" Bundle 'terryma/vim-multiple-cursors'
-" Bundle 'andviro/flake8-vim'
+Bundle 'chase/vim-ansible-yaml'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
+
+" Bundle 'minibufexplorerpp'
+" Bundle 'scrooloose/syntastic'
+" Bundle 'bufexplorer.zip'
+" Bundle 'majutsushi/tagbar'
+" Bundle 'terryma/vim-multiple-cursors'
 
 
 """"""""""""""""""""""""""""""
@@ -206,7 +209,25 @@ let g:ycm_python_binary_path = 'python'
 " nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>                "turn on YCM
 
 
-"
+""""""""""""""""""""""""""""""
+" => python-mode
+""""""""""""""""""""""""""""""
+let g:pymode = 1
+let g:pymode_python = 'python'
+let g:pymode_folding = 0
+let g:pymode_indent = 1
+let g:pymode_doc = 1
+let g:pymode_doc_bind = 'K'
+let g:pymode_lint_on_write = 1
+let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+let g:pymode_options_max_line_length = 200
+let g:pymode_lint_ignore = "E231,E501,W601"
+let g:pymode_rope = 0
+
+" remove automatic line numbers and put everything else back
+let g:pymode_options = 0
+
+
 """"""""""""""""""""""""""""""
 " => fzf-vim设置
 """"""""""""""""""""""""""""""
@@ -223,6 +244,9 @@ let g:fzf_layout = { 'down': '~40%' }
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
+map <leader>ca :FZF ~/<cr>
+map <leader>cl :FZF<cr>
+
 
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
@@ -379,6 +403,12 @@ autocmd FileType json setlocal expandtab smarttab shiftwidth=2 softtabstop=2
 
 
 """"""""""""""""""""""""""""""
+" => yaml 部分
+""""""""""""""""""""""""""""""
+autocmd BufNewFile,BufRead *.yml,*.yaml  set filetype=ansible
+
+
+""""""""""""""""""""""""""""""
 " => matlab 部分
 """"""""""""""""""""""""""""""
 autocmd BufNewFile,BufRead *.m set filetype=matlab
@@ -461,9 +491,9 @@ au FileType go nmap <leader>gr <Plug>(go-run)
 au FileType go nmap <leader>gb <Plug>(go-build)
 au FileType go nmap <leader>gt <Plug>(go-test)
 au FileType go nmap <leader>gc <Plug>(go-coverage)
-" au FileType go nmap <Leader>ds <Plug>(go-def-split)
-" au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-" au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 au FileType go nmap <Leader>ge <Plug>(go-rename)
 
 
