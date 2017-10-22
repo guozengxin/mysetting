@@ -97,6 +97,9 @@ set background=dark
 " colorscheme zellner
 colorscheme default
 
+" 开启256颜色
+set t_Co=256
+
 " 设置默认无行号
 set nonu
 
@@ -138,6 +141,9 @@ set softtabstop=4
 set linebreak
 " 设置文件宽度，0表示不限制
 set textwidth=0
+" 开启行限制
+" set colorcolumn=+1
+" highlight ColorColumn ctermbg=240 guibg=#2c2d27
 
 " 设置自动缩进
 set autoindent
@@ -193,9 +199,10 @@ let g:ycm_complete_in_comments = 1
 " 注释和字符串中的文字也会被收入补全
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
 " 禁止缓存匹配项,每次都重新生成匹配项
-let g:ycm_cache_omnifunc=0
+let g:ycm_cache_omnifunc=1
 " 开启语义补全
 let g:ycm_seed_identifiers_with_syntax=1  
+let g:ycm_auto_trigger=1
 " 跳转到定义处
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " let g:ycm_key_list_select_completion = ['', '']
@@ -203,7 +210,6 @@ nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " let g:ycm_key_invoke_completion = '<C-Space>'
 " " 开启基于tag的补全，可以在这之后添加需要的标签路径  
 " let g:ycm_collect_identifiers_from_tags_files=1
-" let g:ycm_auto_trigger=0
 " nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>                " turn off YCM
 " nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>                "turn on YCM
 
@@ -220,7 +226,7 @@ let g:pymode_doc_bind = 'K'
 let g:pymode_lint_on_write = 1
 let g:pymode_lint_checkers = ['pyflakes', 'pep8']
 let g:pymode_options_max_line_length = 200
-let g:pymode_lint_ignore = "E231,E501,W601"
+let g:pymode_lint_ignore = "E231,E501,W601,E128"
 let g:pymode_rope = 0
 
 " remove automatic line numbers and put everything else back
