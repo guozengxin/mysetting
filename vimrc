@@ -4,7 +4,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 通用设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -169,6 +168,7 @@ Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'klen/python-mode'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'chase/vim-ansible-yaml'
+Bundle 'solarnz/thrift.vim'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 
@@ -191,7 +191,7 @@ let g:ycm_seed_identifiers_with_syntax=1    " 语法关键字补全
 let g:ycm_min_num_of_chars_for_completion=2 " 从第2个键入字符就开始罗列匹配项
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif "离开插入模式后自动关闭预览窗口
 set completeopt=longest,menu    "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
-inoremap <leader>o <C-x><C-o>
+inoremap <leader>co <C-x><C-o>
 " 在字符串输入中也能补全
 let g:ycm_complete_in_strings = 1
 " 在注释输入中也能补全
@@ -209,9 +209,13 @@ nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " let g:ycm_key_list_previous_completion = ['', '']
 " let g:ycm_key_invoke_completion = '<C-Space>'
 " " 开启基于tag的补全，可以在这之后添加需要的标签路径  
-" let g:ycm_collect_identifiers_from_tags_files=1
+let g:ycm_collect_identifiers_from_tags_files=1
 " nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>                " turn off YCM
 " nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>                "turn on YCM
+let g:ycm_semantic_triggers =  {
+            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+            \ 'cs,lua,javascript': ['re!\w{2}'],
+            \ }
 
 
 """"""""""""""""""""""""""""""
@@ -523,4 +527,4 @@ map <leader>il i\\(\\)<esc>2hi
 nmap <leader>ih i{% highlight  %}<CR>{% endhighlight %}<esc>k$2hi
 imap <leader>ih <C-R><C-R>='{% highlight  %}'<CR><CR>{% endhighlight %}<esc>k$2hi
 
-set tags=tags;../tags;../../tags;../../../tags;../../../../tags
+set tags=./.tags;,.tags;tags;../tags;../../tags;../../../tags;../../../../tags
