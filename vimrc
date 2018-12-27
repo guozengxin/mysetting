@@ -1,6 +1,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Author: 小新
 " Email: gzxabcdefg@163.com
+" 操作方式：
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -156,27 +158,30 @@ set wrap
 " => vundle插件安装
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 """"""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'nvie/vim-flake8'
-Bundle 'chilicuil/vim-sml-coursera'
-Bundle 'othree/html5.vim'
-Bundle 'fatih/vim-go'
-Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'klen/python-mode'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'chase/vim-ansible-yaml'
-Bundle 'solarnz/thrift.vim'
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'junegunn/fzf.vim'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'fatih/vim-go'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+" Bundle 'python-mode/python-mode'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'solarnz/thrift.vim'
+call vundle#end()
+filetype plugin indent on
 
+" Bundle 'chilicuil/vim-sml-coursera'
+" Bundle 'othree/html5.vim'
+" Bundle 'gmarik/vundle'
 " Bundle 'minibufexplorerpp'
 " Bundle 'scrooloose/syntastic'
 " Bundle 'bufexplorer.zip'
 " Bundle 'majutsushi/tagbar'
 " Bundle 'terryma/vim-multiple-cursors'
+" Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plugin 'junegunn/fzf.vim'
 
 
 """"""""""""""""""""""""""""""
@@ -203,6 +208,7 @@ let g:ycm_cache_omnifunc=1
 " 开启语义补全
 let g:ycm_seed_identifiers_with_syntax=1  
 let g:ycm_auto_trigger=1
+let g:ycm_log_level = 'info'
 " 跳转到定义处
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " let g:ycm_key_list_select_completion = ['', '']
@@ -212,10 +218,10 @@ nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_collect_identifiers_from_tags_files=1
 " nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>                " turn off YCM
 " nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>                "turn on YCM
-let g:ycm_semantic_triggers =  {
-            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-            \ 'cs,lua,javascript': ['re!\w{2}'],
-            \ }
+" let g:ycm_semantic_triggers =  {
+"             \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+"             \ 'cs,lua,javascript': ['re!\w{2}'],
+"             \ }
 
 
 """"""""""""""""""""""""""""""
