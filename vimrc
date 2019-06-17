@@ -9,7 +9,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 通用设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set history=700                "VIM记录的历史的行数
+set history=3000               "VIM记录的历史的行数
 set helplang=cn                "VIM的帮助的语言
 
 " 打开文件自动检测功能
@@ -33,6 +33,7 @@ if has("autocmd")
 				\ exe "normal g'\"" |
 				\ endif 
 endif
+let $NVIM_COC_LOG_LEVEL='debug'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -46,19 +47,14 @@ set wildmenu
 set completeopt=longest,menuone
 " 始终在右下角显示状态行
 set ruler
-
 " 设置命令行高度
 set cmdheight=2
-
 " 允许在有未保存的修改时切换缓冲区
 set hidden 
-
 " 设置退格键的模式：eol删除上一行，start删除此次插入之前的内容，indent删除自动缩进的内容
 set backspace=eol,start,indent
-
 " 设置折返上一行或下一行时允许的快捷键：左右方向键, h和l键
 set whichwrap+=<,>,h,l
-
 " 搜索时忽略大小写
 set ignorecase
 " 搜索时关键词出现一个大字字母时才区分大小写
@@ -71,7 +67,6 @@ set incsearch
 set lazyredraw
 " 查找时的magic设置，查看:h magic
 set magic
-
 " 高亮显示匹配的括号
 set showmatch
 " How many tenths of a second to blink when matching brackets
@@ -92,18 +87,15 @@ syntax enable "Enable syntax hl
 " 设置字体
 set gfn=Monospace\ 10
 set shell=/bin/bash
-
 " 设置配色模式，背景色
 set background=dark
 " colorscheme zellner
 colorscheme default
-
 " 开启256颜色
 set t_Co=256
-
 " 设置默认无行号
 set nonu
-
+set updatetime=300
 " 设置内部编码
 set encoding=utf-8
 " 终端显示编码
@@ -114,7 +106,6 @@ try
     lang en_US
 catch
 endtry
-
 " 默认的文件类型
 set ffs=unix,dos,mac
 
@@ -145,36 +136,37 @@ set textwidth=0
 " 开启行限制
 " set colorcolumn=+1
 " highlight ColorColumn ctermbg=240 guibg=#2c2d27
-
 " 设置自动缩进
 set autoindent
 " 开户新行的采用自动缩进 
 set si
 " 大于的一行的文本会换行显示
 set wrap
+" 映射0为^
+map 0 ^
 
 
 """"""""""""""""""""""""""""""
 " => vundle插件安装
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 """"""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'nvie/vim-flake8'
-Plugin 'fatih/vim-go'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-" Bundle 'python-mode/python-mode'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'solarnz/thrift.vim'
-call vundle#end()
-filetype plugin indent on
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'nvie/vim-flake8'
+Bundle 'fatih/vim-go'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Bundle 'scrooloose/nerdtree'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
 
-" Bundle 'chilicuil/vim-sml-coursera'
+" Bundle 'Valloric/YouCompleteMe'
+" Plugin 'Yggdroot/indentLine'
 " Bundle 'othree/html5.vim'
-" Bundle 'gmarik/vundle'
+" Bundle 'jistr/vim-nerdtree-tabs'
+" Bundle 'chase/vim-ansible-yaml'
+" Bundle 'chilicuil/vim-sml-coursera'
+" Bundle 'solarnz/thrift.vim'
 " Bundle 'minibufexplorerpp'
 " Bundle 'scrooloose/syntastic'
 " Bundle 'bufexplorer.zip'
@@ -185,62 +177,44 @@ filetype plugin indent on
 
 
 """"""""""""""""""""""""""""""
-" => 自动补全
-" 安装 Bundle 'Valloric/YouCompleteMe'
-" 在.vim/bundle/YouCompleteMe目录下执行 ./install.py --all
+" => coc-vim设置
 """"""""""""""""""""""""""""""
-" YCM settings
-let g:ycm_python_binary_path = 'python'
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-let g:ycm_seed_identifiers_with_syntax=1    " 语法关键字补全
-let g:ycm_min_num_of_chars_for_completion=2 " 从第2个键入字符就开始罗列匹配项
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif "离开插入模式后自动关闭预览窗口
-set completeopt=longest,menu    "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
-inoremap <leader>co <C-x><C-o>
-" 在字符串输入中也能补全
-let g:ycm_complete_in_strings = 1
-" 在注释输入中也能补全
-let g:ycm_complete_in_comments = 1
-" 注释和字符串中的文字也会被收入补全
-let g:ycm_collect_identifiers_from_comments_and_strings = 0
-" 禁止缓存匹配项,每次都重新生成匹配项
-let g:ycm_cache_omnifunc=1
-" 开启语义补全
-let g:ycm_seed_identifiers_with_syntax=1  
-let g:ycm_auto_trigger=1
-let g:ycm_log_level = 'info'
-" 跳转到定义处
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-" let g:ycm_key_list_select_completion = ['', '']
-" let g:ycm_key_list_previous_completion = ['', '']
-" let g:ycm_key_invoke_completion = '<C-Space>'
-" " 开启基于tag的补全，可以在这之后添加需要的标签路径  
-let g:ycm_collect_identifiers_from_tags_files=1
-" nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>                " turn off YCM
-" nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>                "turn on YCM
-" let g:ycm_semantic_triggers =  {
-"             \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-"             \ 'cs,lua,javascript': ['re!\w{2}'],
-"             \ }
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-""""""""""""""""""""""""""""""
-" => python-mode
-""""""""""""""""""""""""""""""
-let g:pymode = 1
-let g:pymode_python = 'python'
-let g:pymode_folding = 0
-let g:pymode_indent = 1
-let g:pymode_doc = 1
-let g:pymode_doc_bind = 'K'
-let g:pymode_lint_on_write = 1
-let g:pymode_lint_checkers = ['pyflakes', 'pep8']
-let g:pymode_options_max_line_length = 200
-let g:pymode_lint_ignore = "E231,E501,W601,E128"
-let g:pymode_rope = 0
-
-" remove automatic line numbers and put everything else back
-let g:pymode_options = 0
+" Use U to show documentation in preview window
+nnoremap <silent> U :call <SID>show_documentation()<CR>
+nmap <leader>rn <Plug>(coc-rename)
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
 """"""""""""""""""""""""""""""
@@ -262,7 +236,6 @@ omap <leader><tab> <plug>(fzf-maps-o)
 map <leader>ca :FZF ~/<cr>
 map <leader>cl :FZF<cr>
 
-
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
@@ -273,8 +246,6 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 """"""""""""""""""""""""""""""
 " => Visual模式相关
 """"""""""""""""""""""""""""""
-" NOTICE: Really useful!
-
 " 在visual模式按下*或#会查找当前选中的部分
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
@@ -311,7 +282,6 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " 在窗口之间移动时，采用此映射
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -330,75 +300,25 @@ map <leader>te :tabedit
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
 
+
 """"""""""""""""""""""""""""""
 " => 状态行
 """"""""""""""""""""""""""""""
 " 设置状态行总是显示
 set laststatus=2
-" let g:Powerline_symbols='unicode'
 set statusline=\ %F%m%r%h\ %w\ \ Line:\ %l/%L
-
-" 获取git分支
-function! GitBranch()
-    try
-        let branch = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
-    catch
-        return ''
-    endtry
-
-    if branch != ''
-        return '   Git Branch: ' . substitute(branch, '\n', '', 'g')
-    en
-
-    return ''
-endfunction
-
-function! HasFlake()
-	if !exists("*Flake8()") && executable('flake8')
-		return ''
-	endif
-	return 'NO'
-endfunction
-
-" 获取当前目录
-function! CurDir()
-    return substitute(getcwd(), '/Users/amir/', "~/", "g")
-endfunction
-
-" 是否粘贴模式
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    en
-    return ''
-endfunction
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => 编辑模式映射
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 映射0为^
-map 0 ^
-
-
-""""""""""""""""""""""""""""""
-" => taglist plugin
-""""""""""""""""""""""""""""""
-let Tlist_Show_One_File=1
-let Tlist_Exit_OnlyWindow=1
-map <silent> <leader>tl :TlistToggle<cr>
 
 """"""""""""""""""""""""""""""
 " => NERDTreeTab plugin
 """"""""""""""""""""""""""""""
-map <leader>n <plug>NERDTreeTabsToggle<CR>
-
-
+nmap <leader>tl <plug>NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""
 " => 将tab转为4个空格的文件
 """"""""""""""""""""""""""""""
 autocmd FileType cfg,thrift,conf setlocal expandtab smarttab shiftwidth=4 softtabstop=4
+
+let g:indentLine_char_list = ['┊', '|', '¦', '┆']
 
 
 """"""""""""""""""""""""""""""
@@ -408,19 +328,6 @@ autocmd BufNewFile,BufRead *.less set filetype=less
 autocmd BufNewFile,BufRead *.scss set filetype=scss
 autocmd FileType css,less,scss setlocal expandtab smarttab shiftwidth=2 softtabstop=2
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
-
-""""""""""""""""""""""""""""""
-" => json 部分
-""""""""""""""""""""""""""""""
-autocmd BufNewFile,BufRead *.json set filetype=json
-autocmd FileType json setlocal expandtab smarttab shiftwidth=2 softtabstop=2
-
-
-""""""""""""""""""""""""""""""
-" => yaml 部分
-""""""""""""""""""""""""""""""
-autocmd BufNewFile,BufRead *.yml,*.yaml  set filetype=ansible
 
 
 """"""""""""""""""""""""""""""
@@ -435,7 +342,7 @@ autocmd FileType matlab setlocal expandtab smarttab shiftwidth=4 softtabstop=4
 """"""""""""""""""""""""""""""
 " 使flake8插件
 let python_highlight_all = 1
-" au BufWritePost *.py call Flake8()
+au BufWritePost *.py call Flake8()
 
 au FileType python syn keyword pythonDecorator True None False self
 
@@ -461,6 +368,23 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 
 
+""""""""""""""""""""""""""""""
+" => python-mode
+""""""""""""""""""""""""""""""
+let g:pymode = 1
+let g:pymode_python = 'python'
+let g:pymode_folding = 0
+let g:pymode_indent = 1
+let g:pymode_doc = 1
+let g:pymode_doc_bind = 'K'
+let g:pymode_lint_on_write = 1
+let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+let g:pymode_options_max_line_length = 200
+let g:pymode_lint_ignore = "E231,E501,W601,E128"
+let g:pymode_rope = 0
+let g:pymode_options = 0
+
+
 """""""""""""""""""""""""""""""
 " => JavaScript section
 """""""""""""""""""""""""""""""
@@ -473,7 +397,6 @@ au FileType javascript imap <c-a> alert();<esc>hi
 
 au FileType javascript inoremap <buffer> $r return 
 au FileType javascript inoremap <buffer> $f //--- PH ----------------------------------------------<esc>FP2xi
-au FileType python setlocal expandtab smarttab shiftwidth=4 softtabstop=4
 
 
 """""""""""""""""""""""""""""""
@@ -488,6 +411,7 @@ au FileType html setlocal expandtab smarttab shiftwidth=2 softtabstop=2
 """""""""""""""""""""""""""""""
 au FileType xml setlocal expandtab smarttab shiftwidth=2 softtabstop=2
 
+
 """""""""""""""""""""""""""""""
 " => Golang部分
 """""""""""""""""""""""""""""""
@@ -497,6 +421,10 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
+let g:go_gocode_propose_source = 0
+let g:go_def_mode = 'gopls'
+let g:go_info_mode = 'gopls'
+let g:go_def_mapping_enabled = 0
 
 au FileType go nmap <Leader>gs <Plug>(go-implements)
 au FileType go nmap <Leader>gi <Plug>(go-info)
@@ -517,20 +445,5 @@ au FileType go nmap <Leader>ge <Plug>(go-rename)
 """"""""""""""""""""""""""""""
 let MRU_Max_Entries = 400
 map <leader>f :MRU<CR>
-
-
-""""""""""""""""""""""""""""""
-" => Vim grep
-""""""""""""""""""""""""""""""
-let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated'
-set grepprg=/bin/grep\ -nH
-
-""""""""""""""""""""""""""""""
-" => 自定义输入快捷键
-""""""""""""""""""""""""""""""
-" map <leader>cl i\\color{}{}<esc>2hi
-map <leader>il i\\(\\)<esc>2hi
-nmap <leader>ih i{% highlight  %}<CR>{% endhighlight %}<esc>k$2hi
-imap <leader>ih <C-R><C-R>='{% highlight  %}'<CR><CR>{% endhighlight %}<esc>k$2hi
 
 set tags=./.tags;,.tags;tags;../tags;../../tags;../../../tags;../../../../tags
