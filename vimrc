@@ -2,7 +2,6 @@
 " Author: 小新
 " Email: gzxabcdefg@163.com
 " 操作方式：
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -23,24 +22,18 @@ set autoread
 let mapleader = ","
 let g:mapleader = ","
 
-" 快速保存
-nmap <leader>w :w!<cr>
-
 " 记住上次打开文件的位置
-if has("autocmd")
-	autocmd BufReadPost *
-				\ if line("'\"") > 0 && line ("'\"") <= line("$") |
-				\ exe "normal g'\"" |
-				\ endif 
-endif
-let $NVIM_COC_LOG_LEVEL='debug'
+autocmd BufReadPost *
+    \ if line("'\"") > 1 && line ("'\"") <= line("$") |
+    \ exe "normal g'\"" |
+    \ endif 
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM界面
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 屏幕滚动时在光标上下方保留7行
-set so=5
+set so=7
 " 在命令模式下使用 Tab 自动补全的时候，将补全内容使用一个漂亮的单行菜单形式显示出来
 set wildmenu
 " 补全窗口不额外显示一个窗口
@@ -83,7 +76,6 @@ set t_vb=
 " => 颜色和字体
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable "Enable syntax hl
-
 " 设置字体
 set gfn=Monospace\ 10
 set shell=/bin/bash
@@ -108,7 +100,6 @@ catch
 endtry
 " 默认的文件类型
 set ffs=unix,dos,mac
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 文件、备份和undo
@@ -138,7 +129,7 @@ set textwidth=0
 " highlight ColorColumn ctermbg=240 guibg=#2c2d27
 " 设置自动缩进
 set autoindent
-" 开户新行的采用自动缩进 
+" 新行的采用自动缩进 
 set si
 " 大于的一行的文本会换行显示
 set wrap
@@ -148,18 +139,30 @@ map 0 ^
 
 """"""""""""""""""""""""""""""
 " => vundle插件安装
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 """"""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'nvie/vim-flake8'
-Bundle 'fatih/vim-go'
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-Bundle 'scrooloose/nerdtree'
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'junegunn/fzf.vim'
+call plug#begin('~/.vim/bundle')
 
+Plug 'gmarik/vundle'
+Plug 'nvie/vim-flake8'
+Plug 'fatih/vim-go'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-surround'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+
+call plug#end()
+
+" Plugin 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 " Bundle 'Valloric/YouCompleteMe'
 " Plugin 'Yggdroot/indentLine'
 " Bundle 'othree/html5.vim'
@@ -172,25 +175,11 @@ Plugin 'junegunn/fzf.vim'
 " Bundle 'bufexplorer.zip'
 " Bundle 'majutsushi/tagbar'
 " Bundle 'terryma/vim-multiple-cursors'
-" Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plugin 'junegunn/fzf.vim'
 
 
 """"""""""""""""""""""""""""""
 " => coc-vim设置
 """"""""""""""""""""""""""""""
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 " Use `[c` and `]c` to navigate diagnostics
@@ -215,6 +204,19 @@ nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
 
 
 """"""""""""""""""""""""""""""
@@ -306,12 +308,16 @@ map <leader>tm :tabmove
 """"""""""""""""""""""""""""""
 " 设置状态行总是显示
 set laststatus=2
-set statusline=\ %F%m%r%h\ %w\ \ Line:\ %l/%L
+set statusline=\ %F%m%r%h\ %w\ \ Line:\ %l/%L\ \ %{coc#status()}
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='cool'
+let g:airline_extensions = []
+
 
 """"""""""""""""""""""""""""""
 " => NERDTreeTab plugin
 """"""""""""""""""""""""""""""
-nmap <leader>tl <plug>NERDTreeToggle<CR>
+nmap <leader>tl :NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""
 " => 将tab转为4个空格的文件
@@ -342,7 +348,7 @@ autocmd FileType matlab setlocal expandtab smarttab shiftwidth=4 softtabstop=4
 """"""""""""""""""""""""""""""
 " 使flake8插件
 let python_highlight_all = 1
-au BufWritePost *.py call Flake8()
+let g:syntastic_python_flake8_args="--ignore=E501"
 
 au FileType python syn keyword pythonDecorator True None False self
 
@@ -366,23 +372,6 @@ func! DeleteTrailingWS()
   exe "normal `z"
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
-
-
-""""""""""""""""""""""""""""""
-" => python-mode
-""""""""""""""""""""""""""""""
-let g:pymode = 1
-let g:pymode_python = 'python'
-let g:pymode_folding = 0
-let g:pymode_indent = 1
-let g:pymode_doc = 1
-let g:pymode_doc_bind = 'K'
-let g:pymode_lint_on_write = 1
-let g:pymode_lint_checkers = ['pyflakes', 'pep8']
-let g:pymode_options_max_line_length = 200
-let g:pymode_lint_ignore = "E231,E501,W601,E128"
-let g:pymode_rope = 0
-let g:pymode_options = 0
 
 
 """""""""""""""""""""""""""""""
